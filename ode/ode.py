@@ -1,20 +1,26 @@
-
+# Numerical methods to solve one-variable ODEs
 def euler(x0,t,f):
-    """ Compute and return the solution of a first-order one-variable differential equation by Euler's method.
+    """ Compute and return the solution of a first-order one-variable differential equation (ODE) by Euler's method.
 
     Examples:
-        >>> euler(x0,t,f)
-        x
-
+        Solving dx/dt = -x^3 + sin(t)
+        >>> import numpy as np
+        >>> import matplotlib.pyplot as plt
+        >>> def f(x,t): return -x**3 + np.sin(t)
+        >>> x0 = 0
+        >>> t = np.linspace(0,10,100)
+        >>> x_euler(x0,t,f)
+        >>> plt.plot(t,x_euler)
+        >>> plt.show
+    
     Args:
         x0 (float): First argument. A floating number representing the initial condition.
-        t (vector): Second argument. A one-dimensional array of time.
-        f : Third argument. The function to solve which form is: dx/dt = f(x,t)
+        t (array): Second argument. A one-dimensional array of time with the start and end of the interval and the number of steps.
+        f (function): Third argument. The function to solve which form is: dx/dt = f(x,t)
 
     Returns:
-        x: A one-dimensional array with the solution of dx/dt = f(x,t).
+        x(array): A one-dimensional array with the aproximate solution of dx/dt = f(x,t).
     """
-    
     h = t[1] - t[0]                 # Size of a single step
     x = np.zeros(t.size)            # One-dimensional array initialized to zero of size t
     x[0] = x0                       # Initial condition
@@ -23,8 +29,28 @@ def euler(x0,t,f):
         x[i+1] = x[i] + (h * f(x[i],t[i]))
     return x
 
-
 def rk2(x0,t,f):
+    """Compute and return the solution of a first-order one-variable differential equation (ODE) by Ruge-Kutta second order's method.
+
+    Examples:
+        Solving dx/dt = -x^3 + sin(t)
+        >>> import numpy as np
+        >>> import matplotlib.pyplot as plt
+        >>> def f(x,t): return -x**3 + np.sin(t)
+        >>> x0 = 0
+        >>> t = np.linspace(0,10,100)
+        >>> x_rk2(x0,t,f)
+        >>> plt.plot(t,x_rk2)
+        >>> plt.show
+    
+    Args:
+        x0 (float): First argument. A floating number representing the initial condition.
+        t (array): Second argument. A one-dimensional array of time with the start and end of the interval and the number of steps.
+        f (function): Third argument. The function to solve which form is: dx/dt = f(x,t)
+
+    Returns:
+        x (array): A one-dimensional array with the aproximate solution of dx/dt = f(x,t).
+    """
     h = t[1] - t[0]
     x = np.zeros(t.size)
     x[0] = x0
@@ -35,6 +61,27 @@ def rk2(x0,t,f):
     return x
 
 def rk4(x0,t,f):
+    """Compute and return the solution of a first-order one-variable differential equation (ODE) by Ruge-Kutta fourth order's method.
+
+    Examples:
+        Solving dx/dt = -x^3 + sin(t)
+        >>> import numpy as np
+        >>> import matplotlib.pyplot as plt
+        >>> def f(x,t): return -x**3 + np.sin(t)
+        >>> x0 = 0
+        >>> t = np.linspace(0,10,100)
+        >>> x_rk4(x0,t,f)
+        >>> plt.plot(t,x_rk4)
+        >>> plt.show
+    
+    Args:
+        x0 (float): First argument. A floating number representing the initial condition.
+        t (array): Second argument. A one-dimensional array of time with the start and end of the interval and the number of steps.
+        f (function): Third argument. The function to solve which form is: dx/dt = f(x,t)
+
+    Returns:
+        x (array): A one-dimensional array with the aproximate solution of dx/dt = f(x,t).
+    """
     h = t[1] - t[0]
     x = np.zeros(t.size)
     x[0] = x0
@@ -46,14 +93,3 @@ def rk4(x0,t,f):
         x[i+1] = x[i] + 1/6 * (k1 + 2 * k2 + 2 * k3 + k4)
     return x
 
-
-def rk4(func, ham, y_n, h):
-    k1 = func(ham,y_n)
-    k2 = func(ham,y_n+h/2*k1)
-    k3 = func(ham,y_n+h/2*k2)
-    k4 = func(ham,y_n+h*k3)
-    
-    return y_n + h/6 * (k1 + 2*k2 + 2*k3 + k4)
-    # Esta función debe devolver y_{n+1}
-
-    
