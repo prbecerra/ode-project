@@ -19,7 +19,7 @@ Las ecuaciones del método RK2 y el punto en el tiempo de la siguiente iteració
 
 $$\boxed{x(t + h) = x(t) + k_2}$$
 
-El error de aproximación de cada paso es de orden $O(h^3)$, mientras que el error global  es de order $O(h^2)$.
+El error de aproximación de cada paso es del orden de $O(h^3)$, mientras que el error global  es del orden de $O(h^2)$.
 
 ## Método de Runge-Kutta de cuarto orden (RK4)
 En este método se aplica a más puntos intermedios entre $x(t)$ y $x(t+h)$ por medio de expansiones de Taylor.
@@ -36,4 +36,4 @@ Las constantes y el valor de $x$ en la siguiente iteración son:
 
 $$\boxed{x(t + h) = x(t) + 1/6 \, (k_1 + 2 k_2 + 2k_3 + k_4)}$$
 
-El error de aproximación es del orden $O(h^5)$, mientras que el error global es aproximadamente del orden $O(h^4)$.
+El error de aproximación es del orden de $O(h^5)$, mientras que el error global es aproximadamente del orden de $O(h^4)$.
