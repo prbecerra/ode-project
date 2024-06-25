@@ -9,7 +9,7 @@ $$\boxed{x(t + h) = x(t) + h \, f(x,t)}$$
 
 El error total de aproximación depende linealmente de $h$ multiplicado por el intervalo en el cual realizamos la integración.
 ## Método de Runge-Kutta de segundo orden (RK2)
-Este método se deriva también de la expansión de Taylor alrededor del punto medio $t + h/2$ aplicando el método de Euler en lugar del punto $t$. El paso en cada iteración en este método es de $h/2$. 
+Este método se deriva también de la expansión de Taylor utilizando el punto medio $t + h/2$ para evaluar el método de Euler y aproximar la derivada en el punto $x(t + h)$ con mayor precisión. El paso en cada iteración en este método es de $h/2$. 
 
 Las ecuaciones del método RK2 y el punto en el tiempo de la siguiente iteración es:
 
@@ -22,9 +22,9 @@ $$\boxed{x(t + h) = x(t) + k_2}$$
 El error de aproximación de cada paso es del orden de $O(h^3)$, mientras que el error global  es del orden de $O(h^2)$.
 
 ## Método de Runge-Kutta de cuarto orden (RK4)
-En este método se aplica a más puntos intermedios entre $x(t)$ y $x(t+h)$ por medio de expansiones de Taylor.
+Este método se aplica a más puntos intermedios entre $x(t)$ y $x(t+h)$ por medio de expansiones de Taylor siguiendo la metodología anterior de RK2.
 
-Las constantes y el valor de $x$ en la siguiente iteración son:
+Las constantes y el valor en el punto $x(t+h)$ en la siguiente iteración son:
 
 - $k_1 = h \, f(x, t)$,
 
