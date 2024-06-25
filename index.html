@@ -325,7 +325,7 @@
 <div class="arithmatex">\[\boxed{x(t + h) = x(t) + h \, f(x,t)}\]</div>
 <p>El error total de aproximación depende linealmente de <span class="arithmatex">\(h\)</span> multiplicado por el intervalo en el cual realizamos la integración.</p>
 <h2 id="metodo-de-runge-kutta-de-segundo-orden-rk2">Método de Runge-Kutta de segundo orden (RK2)</h2>
-<p>Este método se deriva también de la expansión de Taylor alrededor del punto medio <span class="arithmatex">\(t + h/2\)</span> aplicando el método de Euler en lugar del punto <span class="arithmatex">\(t\)</span>. El paso en cada iteración en este método es de <span class="arithmatex">\(h/2\)</span>. </p>
+<p>Este método se deriva también de la expansión de Taylor utilizando el punto medio <span class="arithmatex">\(t + h/2\)</span> para evaluar el método de Euler y aproximar la derivada en el punto <span class="arithmatex">\(x(t + h)\)</span> con mayor precisión. El paso en cada iteración en este método es de <span class="arithmatex">\(h/2\)</span>. </p>
 <p>Las ecuaciones del método RK2 y el punto en el tiempo de la siguiente iteración es:</p>
 <ul>
 <li>
@@ -338,8 +338,8 @@
 <div class="arithmatex">\[\boxed{x(t + h) = x(t) + k_2}\]</div>
 <p>El error de aproximación de cada paso es del orden de <span class="arithmatex">\(O(h^3)\)</span>, mientras que el error global  es del orden de <span class="arithmatex">\(O(h^2)\)</span>.</p>
 <h2 id="metodo-de-runge-kutta-de-cuarto-orden-rk4">Método de Runge-Kutta de cuarto orden (RK4)</h2>
-<p>En este método se aplica a más puntos intermedios entre <span class="arithmatex">\(x(t)\)</span> y <span class="arithmatex">\(x(t+h)\)</span> por medio de expansiones de Taylor.</p>
-<p>Las constantes y el valor de <span class="arithmatex">\(x\)</span> en la siguiente iteración son:</p>
+<p>Este método se aplica a más puntos intermedios entre <span class="arithmatex">\(x(t)\)</span> y <span class="arithmatex">\(x(t+h)\)</span> por medio de expansiones de Taylor siguiendo la metodología anterior de RK2.</p>
+<p>Las constantes y el valor en el punto <span class="arithmatex">\(x(t+h)\)</span> en la siguiente iteración son:</p>
 <ul>
 <li>
 <p><span class="arithmatex">\(k_1 = h \, f(x, t)\)</span>,</p>
